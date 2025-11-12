@@ -11,25 +11,28 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
       - name: Install dependencies
         run: |
-          npm install -g cordova
-          npm install
+          npm install -g npm@latest
+          npm install -g cordova@latest
 
-      - name: Build Android APK
+      - name: Create Cordova project
         run: |
+          cordova create tisha com.tisha.app TishaApp
+          cd tisha
           cordova platform add android
-          cordova build android --debug
+          cp -r ../* ./www/
+          cordova build android --release
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: TISHA_APP_APK
-          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          path: tisha/platforms/android/app/build/outputs/apk/release/app-release.apk
