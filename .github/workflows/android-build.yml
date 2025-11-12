@@ -1,0 +1,36 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install -g cordova
+
+    - name: Create Cordova project
+      run: |
+        cordova create tisha com.example.tisha TishaApp
+        cd tisha
+        cordova platform add android
+        cp -r ../* ./www/
+        cordova build android --release
+
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: TISHA_APP_APK
+        path: tisha/platforms/android/app/build/outputs/apk/release/*.apk
