@@ -1,0 +1,20 @@
+
+:root{--bg:#f6f9fb;--card:#fff;--muted:#6b7280;--accent-start:#34D399;--accent-end:#06B6D4;--text:#0b1220}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text);min-height:100vh}
+.hidden{display:none}
+.splash{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#f0f6fb);z-index:9999}
+.splash-inner{display:flex;flex-direction:column;align-items:center;animation:fadeUp 900ms ease-out}
+.splash-logo{width:120px;height:120px;border-radius:20px;filter:drop-shadow(0 12px 30px rgba(52,211,153,0.12))}
+.center-card{max-width:420px;margin:36px auto;padding:28px;border-radius:16px;background:var(--card);box-shadow:0 8px 30px rgba(2,6,23,0.06);text-align:center}
+.brand{font-family:Poppins,Inter;margin:6px 0 2px;font-size:28px;letter-spacing:1px;color:var(--text)}
+.tag{color:var(--muted);margin:8px 0 18px}
+.login-card{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(11,18,32,0.04)}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(11,18,32,0.06);background:transparent;color:var(--text);outline:none;margin-bottom:10px}
+.phone-row{display:flex;gap:8px}
+.prefix{width:84px;padding:12px;border-radius:10px;border:1px solid rgba(11,18,32,0.06);background:transparent;color:var(--text)}
+.btn{padding:12px 14px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:inherit}
+.btn-primary{background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:white;font-weight:700;box-shadow:0 8px 30px rgba(52,211,153,0.08)}
+.small-footer{opacity:0.6;margin-top:18px;font-size:13px;color:var(--muted)}
+.list{display:flex;flex-direction:column;gap:8px;padding:12px}
+.chat-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfbfd);border:1px solid rgba(11,18,32,0.03)}
+.avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(90deg,var(--accent-start),var(--accent-end));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
